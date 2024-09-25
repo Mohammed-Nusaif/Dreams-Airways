@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+#spotlight .content {
+    align-items: center;
+    padding: 30px;
+}
+
+#spotlight .content h1 {
+    font-size: 4.5em;
+    color: rgb(90, 84, 84);
+}
+
+#spotlight .content .btn {
+    margin-top: 20px;
+    padding: 10px 35px;
+    /* background: #2c6c6c; */
+    background: #0080FF;
+    border: none;
+}
+
+#spotlight .content .btn1 {
+    margin-right: 10px;
+}
+
+
+
+/* responsive starts here */
+@media (max-width: 768px) {
+    #spotlight img {
+        display: none;
+
+    }
+}

@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+ #support{
+    width:100%;
+    margin-top: 100px;
+
+ }
+ #support .content{ 
+    width: 100%;
+    text-align: center;
+ }
+ #support .content h3{
+    font-weight: lighter;
+    font-size: 15px;
+    letter-spacing: 1pc;
+ }
+ #support .content p{
+    font-weight: lighter;
+ }
+ #guide{
+    display: flex;
+    width: 100%;
+    margin-top: 50px;
+
+ }
+ #guide .left{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    width: 50%;
+ }
+ #guide .left span{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: center;
+    margin-bottom: 15px;
+ }
+ #guide .left .requirement span{
+    background-color: rgb(122, 122, 255);
+ 
+ }
+ #guide .left .services span{
+    background-color: rgb(255, 148, 109);
+ }
+
+ #guide .left .insurance span{
+    background-color:peachpuff;
+
+ }
+ #guide .left .cnt h2{
+    font-size: 18px;
+    font-weight: bold;
+ }
+ #guide .left .cnt h2 p{
+    font-size: 10px;
+ }
+ #guide .right{
+    display: flex;
+    width: 50%;    
+    position: relative;
+ }
+ #guide .right img{
+
+    width: 200px;
+    height: 250px;
+    border-radius: 100px;
+ }
+ #guide .right .window1{
+    position: absolute;
+    top: 83px;
+    right: 314px;
+ }
+ #guide .right .window2{
+    position: absolute;
+    top: 90px;
+    right: 24px;
+ }
+ #guide .right .plane{
+    position: absolute;
+    top: 6px;
+    right: 156px;
+
+ }
+

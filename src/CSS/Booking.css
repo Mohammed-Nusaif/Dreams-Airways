@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#Ticket {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100svh;
+  background-image: url(../assets/pexels-鲨柿笔亚-13095812.jpg);
+  background-size: cover;
+}
+
+#Ticket .ticket_box {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 400px;
+  text-align: center;
+  background-color: #fff;
+  padding: 25px;
+  margin: 0 auto;
+}
+
+.trip-row {
+  margin: 0;
+}
+
+.fromto {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+#Ticket .ticket_box table {
+  padding: 50px;
+}
+
+#Ticket .ticket_box .btn {
+  display: flex;
+  justify-content: center;
+  width: 35%;
+  margin-top: 15px;
+  background: #2c6c6c;
+  ;
+}
+
+/* departure and arrival*/
+
+.From-container {
+  position: relative;
+}
+
+.label-container {
+  position: relative;
+}
+
+.label-container .from-superscript {
+  content: 'From';
+  position: absolute;
+  font-weight: 600;
+  top: -2px;
+  /* Adjust as needed */
+  left: 30px;
+  /* Adjust as needed */
+  font-size: 0.7em;
+  /* Adjust as needed */
+  color: #666;
+  /* Adjust as needed */
+  visibility: hidden;
+  background-color: #fff;
+}
+
+.from:focus~.from-superscript {
+  visibility: visible;
+}
+
+.to-superscript {
+  content: 'From';
+  position: absolute;
+  font-weight: 600;
+  top: -2px;
+  /* Adjust as needed */
+  left: 30px;
+  /* Adjust as needed */
+  font-size: 0.7em;
+  /* Adjust as needed */
+  color: #666;
+  /* Adjust as needed */
+  visibility: hidden;
+  background-color: #fff;
+}
+
+.to:focus~.to-superscript {
+  visibility: visible;
+}
+
+.departure {
+  position: absolute;
+  top: 9px;
+  left: 17px;
+  color: #666;
+}
+
+.To-container {
+  position: relative;
+}
+
+.arrival {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  color: #666;
+}
+
+.from {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 7px 55px;
+  font-size: 12px;
+}
+
+.to {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 7px 55px;
+  font-size: 12px;
+}
+
+.departure-date {
+  font-size: 13px;
+  font-weight: 400;
+  width: 243px;
+  color: #666;
+
+}
+
+.arrival-date {
+  font-size: 13px;
+  font-weight: 400;
+  width: 243px;
+  color: #666;
+
+}
+
+.double-arrow {
+  position: relative;
+  top: 40px;
+  left: 150px;
+  color: #666;
+
+}
+
+/* calender */
+input.inputBox {
+  font-size: 15px;
+  padding: 5px 40px;
+  border-radius: 3px;
+  border: 1px solid #666;
+
+}
+
+.calendarWrap {
+  display: inline-block;
+  position: relative;
+  margin-top: 15px;
+}
+
+.calendarElement {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 40px;
+  border: 1px solid #ccc;
+  z-index: 999;
+}
+
+.calender-icon {
+  position: absolute;
+  top: 3px;
+  left: 26px;
+  color: #666;
+}
+
+.date-superscript {
+  content: 'Date';
+  position: absolute;
+  font-weight: 600;
+  top: -12px;
+  left: 5px;
+  font-size: 0.7em;
+  color: #666;
+  visibility: hidden;
+  background-color: #fff;
+}
+
+.inputBox:focus~.date-superscript {
+  visibility: visible;
+}
+
+.text-center {
+  display: flex;
+  justify-content: center;
+}
+
+/* cabin class */
+.cabin-class {
+  position: relative;
+}
+
+.cabin-class .cabin {
+  font-size: 15px;
+  padding: 5px 65px;
+  border-radius: 3px;
+  border: 1px solid #666;
+  margin-top: 15px;
+}
+
+.cabin-icon {
+  position: absolute;
+  top: 10px;
+  left: 39px;
+  font-size: 24px;
+  color: #666;
+}
+
+.cabin-class .cabin-superscript {
+
+  font-size: 10px;
+  font-weight: 600;
+  color: #666;
+  position: absolute;
+  top: 4px;
+  left: 30px;
+  background-color: #fff;
+  visibility: hidden;
+}
+
+.cabin:focus+.cabin-superscript {
+  visibility: visible;
+}

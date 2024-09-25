@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+#main{
+    width: 100%;
+    margin-top: 100px   ;
+}
+#main .content{
+    display: flex;
+    width: 100%;
+    height: 80svh;
+}
+#main .content .left{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    
+}
+#main .content .left h3{
+    font-size: 25px;
+    margin-left: 18px;
+}
+#main .content .left .main_part{
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+#main .content .left .parts{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 20px;
+    
+}
+#main .content .left .parts h5{
+    font-size: 17px;
+    font-weight: 400;
+}
+#main .content .left .parts p{
+    font-size: 15;
+    font-weight: 200;
+    color: gray;
+}
+#main .content .right{
+    display: flex;
+    width: 50%;
+   
+
+}
+#main .content .right .inside{
+    width: 200px;
+    height: 300px;
+    position: relative;
+}
+#main .content .right .inside img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100px;
+}
+#main .content .right  .inside .img1{
+    position: absolute;
+    top: 7px;
+    left: 70px;
+}
+#main .content .right .img2{
+    position: absolute;
+    top: -72px;
+    right: -218px;
+}

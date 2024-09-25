@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+#memories{
+    width: 100%;
+    height: 80svh;
+    background-color :rgb(255, 246, 239);
+}
+#memories .top{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 100px;
+    
+}
+#memories .top .left{
+   
+}
+#memories .top .right .btn{
+    background: #2c6c6c;
+    width: 100px;
+    height: 45px;
+    border: none;
+    border-radius: 25px;
+}
+#memories .bottom{
+    display: flex;
+    width: 100%;
+}
+#memories .bottom .box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    height: 250px;
+    margin-right: 25px;
+    padding: 20px;
+    background: #fff;
+    text-align: center;
+    border-radius: 100px;
+}
+#memories .bottom .box span{
+
+    display: flex;  
+    justify-content: center; 
+    align-items: center; 
+    width: 45px;
+    height: 45px;
+    border-radius: 50px;
+    color: #fff;
+    margin: 0 auto;
+
+}
+
+#memories .bottom .box1 span{
+    background-color: rgb(122, 122, 255);
+}
+#memories .bottom .box2 span{
+    background-color: rgb(255, 148, 109);
+}
+#memories .bottom .box3 span{
+    background-color:peachpuff;
+}
+#memories .bottom .box h4{
+    font-size: 18px;
+    margin-top: 15px;
+}
+#memories .bottom .box p{
+    color: gray;
+    padding: 5px;
+    margin: 0;
+}
