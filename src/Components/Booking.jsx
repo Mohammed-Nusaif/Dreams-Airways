@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form} from "react-bootstrap";
 import "../CSS/Booking.css";
 import { FaPlaneArrival, FaPlaneDeparture } from "react-icons/fa";
 import { TbArrowsRightLeft } from "react-icons/tb";
@@ -13,6 +13,10 @@ import { addDays } from "date-fns";
 
 function Booking() {
   const [isRoundtrip, setIsRoundTrip] = useState(true);
+  const [departure, setDeparture] = useState("");
+  const [arrival, setArrival] = useState("")
+
+  const places = ["new York", "Los Angeles","Chicago", "Miami", "Karippur", "Kochi", "Mumbai", "Delhi", "Chennai", "Bangalore", "Hyderabad", "Kolkata"];
 
   const handleTripTypeChange = (e) => {
     setIsRoundTrip(e.target.value === "roundTrip");
@@ -82,19 +86,49 @@ function Booking() {
             <Col xs={12} md={6}>
               <div className="label-container">
                 <FaPlaneDeparture className="departure" />
-                <input
-                  type="text"
+                <Form.Control
+                  as ="select"
                   className="from form-control"
+                  value = {departure}
+                  onChange = {(e) => setDeparture(e.target.value)}
                   placeholder="Departure"
-                />
+                >
+                <option value="" disabled>
+                  Select Departure
+                </option>
+                {
+                  places.map((place, index) => (
+                    <option key={index} value={place}>
+                      {place}
+                    </option>
+                  ))
+                }
                 {/* <span className="from-superscript">FROM</span> */}
+                </Form.Control>
               </div>
             </Col>
             <Col xs={12} md={6}>
               <div className="To-container">
                 <FaPlaneArrival className="arrival" />
-                <input type="text" className="to form-control" placeholder="To" />
+                <Form.Control as="select"
+                  className="to form-control"
+                  value= {arrival}
+                  onChange={(e) => setArrival(e.target.value)}
+                  placeholder="To"
+                  disabled={!isRoundtrip}
+                >
                 {/* <span className="to-superscript">TO</span> */}
+                <option value="" disabled>
+                  Select Arrival
+                </option>
+                {
+                  places.map((place,index) => (
+                    <option key={index} value={place}>
+                      {place}
+                    </option>
+                  ))
+                }
+                </Form.Control>
               </div>
             </Col>
           </Row>
