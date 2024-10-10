@@ -3,13 +3,14 @@ import { Container, Row, Col, Form, Dropdown, Button} from "react-bootstrap";
 import "../CSS/Booking.css";
 import { FaPlaneArrival, FaPlaneDeparture } from "react-icons/fa";
 // import { TbArrowsRightLeft } from "react-icons/tb";
-import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { BsCalendarPlus } from "react-icons/bs";
 import { MdOutlineFlightClass } from "react-icons/md";
 import format from "date-fns/format";
+import DatePicker from 'react-datepicker';
 import { addDays } from "date-fns";
+import 'react-datepicker/dist/react-datepicker.css';
 
 function Booking() {
   const [isRoundtrip, setIsRoundTrip] = useState(true);
@@ -32,36 +33,28 @@ function Booking() {
   const places = ["new York", "Los Angeles","Chicago", "Miami", "Karippur", "Kochi", "Mumbai", "Delhi", "Chennai", "Bangalore", "Hyderabad", "Kolkata"];
 
   const handleTripTypeChange = (e) => {
-    setIsRoundTrip(e.target.value === "roundTrip");
+    const tripType = e.target.value;
+    setIsRoundTrip(tripType === "roundTrip");
+    if (tripType === 'oneWay') {
+      setToDate(null); // Optionally clear the toDate when "One Way" is selected
+    }
   };
 
-  const [range, setRange] = useState([
-    {
-      startDate: new Date(),
-      endDate: addDays(new Date(), 7),
-      key: "selection",
-    },
-  ]);
-
-  const [open, setOpen] = useState(false);
-  const refOne = useRef(null);
+  const handleClickOutside = (e) => {
+    if (refFrom.current && !refFrom.current.contains(e.target)) {
+      setOpenFrom(false);
+    }
+    if (refTo.current && !refTo.current.contains(e.target)) {
+      setOpenTo(false);
+    }
+  };
 
   useEffect(() => {
-    document.addEventListener("keydown", hideOnEscape, true);
-    document.addEventListener("click", hideOnClickOutside, true);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
-
-  const hideOnEscape = (e) => {
-    if (e.key === "Escape") {
-      setOpen(false);
-    }
-  };
-
-  const hideOnClickOutside = (e) => {
-    if (refOne.current && !refOne.current.contains(e.target)) {
-      setOpen(false);
-    }
-  };
 
   return (
     <section id="Ticket">
@@ -167,12 +160,12 @@ function Booking() {
             <Col xs={12} md={6}>
               <div className="To-container">
                 <FaPlaneArrival className="arrival" />
-                <Form.Control as="select"
+                <Form.Control
+                  as="select"
                   className="to form-control"
                   value= {arrival}
                   onChange={(e) => setArrival(e.target.value)}
                   placeholder="To"
-                  disabled={!isRoundtrip}
                 >
                 {/* <span className="to-superscript">TO</span> */}
                 <option value="" disabled>
@@ -191,35 +184,55 @@ function Booking() {
           </Row>
 
           <Row className="mb-4 fromto">
+          {/* calender */}
             <Col xs={12} md={6} className="calendarWrap">
               <span className="calender-icon">
                 <BsCalendarPlus />
               </span>
               <input
-                value={`${format(range[0].startDate, "MM/dd/yyyy")} to ${format(
-                  range[0].endDate,
-                  "MM/dd/yyyy"
-                )}`}
+                value={format(fromDate, "MM/dd/yyyy")}
                 readOnly
                 className="form-control inputBox"
-                onClick={() => setOpen((open) => !open)}
+                onClick={() => setOpenFrom((open) => !open)}
               />
-              <span className="date-superscript">Date</span>
-              <div ref={refOne}>
-                {open && (
-                  <DateRangePicker
-                    onChange={(item) => setRange([item.selection])}
-                    editableDateInputs
-                    moveRangeOnFirstSelection={false}
-                    ranges={range}
-                    months={1}
-                    direction="vertical"
+              <span className="date-superscript">From Date</span>
+              <div ref={refFrom} className="calender-container">
+                {openFrom && (
+                  <DatePicker
+                    selected={fromDate}
+                    onChange={(date) => setFromDate(date)}
+                    // editableDateInputs
                     className="calendarElement"
+                    inline
                   />
                 )}
               </div>
             </Col>
-            <Col xs={12} md={6} className="cabin-class">
+            <Col xs={12} md={6} className="calendarWrap">
+              <span className="calender-icon">
+                <BsCalendarPlus />
+              </span>
+              <input
+                value={toDate ? format(toDate, "MM/dd/yyyy"): ""}
+                readOnly
+                className="form-control inputBox"
+                onClick={() => setOpenTo((open) => !open)}
+                disabled={!isRoundtrip}
+              />
+              <span className="date-superscript">To Date</span>
+              <div ref={refTo} className="calender-container">
+                {openTo && isRoundtrip && (
+                  <DatePicker
+                    selected={toDate}
+                    onChange={(date) => setToDate(date)}
+                    // editableDateInputs
+                    className="calendarElement"
+                    inline
+                  />
+                )}
+              </div>
+            </Col>
+            {/* <Col xs={12} md={6} className="cabin-class">
               <select name="main-cabin" className="form-select">
                 <span className="cabin-icon">
                   <MdOutlineFlightClass />
@@ -231,7 +244,7 @@ function Booking() {
                 <option value="business-class">Business class</option>
               </select>
               <span className="cabin-superscript">Cabin Class</span>
-            </Col>
+            </Col> */}
           </Row>
 
           <Row>

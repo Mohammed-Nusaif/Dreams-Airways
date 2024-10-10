@@ -243,3 +243,8 @@ input.inputBox {
 .cabin:focus+.cabin-superscript {
   visibility: visible;
 }
+
+.calender-container {
+  position: absolute;
+  z-index: 999;
+}
